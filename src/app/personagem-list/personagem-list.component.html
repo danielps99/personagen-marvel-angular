@@ -1,17 +1,6 @@
-<p>
-  personagem-list works!
-</p>
-{{qtdRegistros}}
-<!-- <ul>
-  <li *ngFor="let item of personagens">
-    <img width=60px src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" />
-    {{item.name}}
-  </li>
-</ul> -->
-
 <div id="pagina">
     <header>
-        <h1><span id="busca-marvel">BUSCA MARVEL</span><span id="teste-front-end">TESTE FRONT-END</span> <span id="candidato" class="hide-on-mobile">DANIEL PEREIRA DOS SANTOS</span></h1>
+        <h1 id="titulo"><span id="busca-marvel">BUSCA MARVEL</span><span id="teste-front-end">TESTE FRONT-END</span> <span id="candidato" class="hide-tela-peq">DANIEL PEREIRA DOS SANTOS</span></h1>
         <div id="underline-busca"></div>
     </header>
     <section>
@@ -23,24 +12,24 @@
         <thead>
           <tr >
             <th>Personagem</th>
-            <th class="hide-on-mobile">Séries</th>
-            <th class="hide-on-mobile">Eventos</th>
+            <th class="hide-tela-peq">Séries</th>
+            <th class="hide-tela-peq hide-tela-med">Eventos</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let personagem of personagens">
             <td>
-                <img width=60px src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
-                {{personagem.name}}
+              <img class="thumbnail" src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
+              <span class="nome-personagem"> {{personagem.name}}</span>
             </td>
-            <td class="hide-on-mobile">
+            <td class="hide-tela-peq">
               <ul>
-                <li *ngFor="let serie of personagem.series.items" >{{serie.name}}</li>
+                <li *ngFor="let serie of retornarNoMaximoTresSeries(personagem.series.items)" >{{serie.name}}</li>
               </ul>
             </td>
-            <td class="hide-on-mobile">
+            <td class="hide-tela-peq hide-tela-med">
                 <ul>
-                    <li *ngFor="let event of personagem.events.items" >{{event.name}}</li>
+                    <li *ngFor="let event of retornarNoMaximoTresEvents(personagem.events.items)" >{{event.name}}</li>
                   </ul>
             </td>
           </tr>
@@ -48,6 +37,9 @@
         </tbody>
       </table>
       <nav>
+          <p>
+              registros: {{qtdRegistros}}
+            </p>
         <ul id="paginacao">
           <li class="link-previous"></li>
           <li class="link-page">1</li>

@@ -1,0 +1,225 @@
+ @font-face {
+  font-family: 'Roboto-Black';
+  src: url('fonts/roboto/Roboto-Black.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('fonts/roboto/Roboto-Light.ttf') format('truetype');
+  font-weight: lighter;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto-Regular';
+
+
+  src: url('fonts/roboto/Roboto-Regular.ttf') format('truetype');
+  font-weight: lighter;
+    font-style: normal;
+}
+
+:root {
+  --corClara: #ffffff;
+  --corMedia: #d42026;
+  --corMediaOpac: rgb(212,32,38, 0.35);
+  --corEscura:#4e4e4e;
+}
+
+html {
+  font-family: sans-serif;
+}
+body, h1 {
+  margin: 0;
+}
+
+#pagina{
+  padding-top: 20px;
+  padding-right: 42px;
+  padding-left: 42px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 0px 0px 0px 0px;
+  border-bottom: 12px solid var(--corMedia);
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+#underline-busca{
+  height: 4px;
+  width: 54px;
+  background-color: var(--corMedia);
+}
+
+section{
+  padding-top: 34px;
+}
+#form-busca{
+  font-family: 'Roboto-Regular';
+  font-size: 16px;
+  margin-bottom: 34px;
+}
+#form-busca label{
+  color: var(--corMedia);
+}
+
+#form-busca input{
+  width: 400px;
+  height: 31px;
+  border: 1px solid #a5a5a5;
+}
+
+#table-super-herois{
+  width: 100%;
+  border-collapse: collapse
+}
+#table-super-herois th{
+  background-color: var(--corMedia);
+  color: var(--corClara);
+  font-family: 'Roboto-Regular';
+  font-size: 16px;
+  height: 37px;
+}
+#table-super-herois thead tr :nth-child(1) {
+  width: 25%;
+  border-right: 10px solid var(--corClara)
+}
+#table-super-herois thead tr :nth-child(2) {
+  width: 25%;
+}
+#table-super-herois thead tr :nth-child(3) {
+  width: 50%;
+  border-left: 10px solid var(--corClara);
+}
+
+#table-super-herois tbody tr td{
+  /* padding-left: 30px; */
+  height: 112px;
+  vertical-align: middle;
+  border-bottom: 3px solid var(--corMediaOpac);
+}
+
+#table-super-herois tbody tr td .thumbnail{
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  margin-left: 5px;
+  margin-right: 12px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+#table-super-herois tbody tr td li{
+  text-decoration: none;
+   display: block;
+}
+
+#busca-marvel{
+  font-family: 'Roboto-Black';
+  font-size: 27px;
+  color: var(--corMedia);
+  display: inline-block;
+}
+
+#teste-front-end, #candidato{
+  font-family: 'Roboto-Light';
+  font-size: 27px;
+  color: var(--corMedia);
+  display: inline-block;
+}
+
+#candidato{
+  float: right;
+}
+
+#paginacao {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  text-align: center;
+}
+#paginacao li{
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+
+#paginacao .link-page{
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid var(--corMedia);
+  border-radius: 50%;
+  margin: 0px 10px 0px 10px;
+}
+
+#paginacao .link-previous:before,
+#paginacao .link-next:before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+#paginacao .link-previous:before {
+  border-right: 12px solid var(--corMedia);
+}
+
+#paginacao .link-next:before {
+  border-left: 12px solid var(--corMedia);
+}
+
+@media (min-width: 1280px) {
+  #pagina{
+    max-width: 1196px;
+  }
+}
+
+ @media (max-width: 484px) {
+  #form-busca input{
+    width: 100%;
+  }
+
+  .hide-tela-med{
+    display: none !important;
+  }
+ }
+
+@media (max-width: 360px) {
+  .hide-tela-peq{
+    display: none !important;
+  }
+  #pagina{
+    padding: 12px 0px 0px 0px;
+  }
+
+  #busca-marvel, #teste-front-end{
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  #underline-busca{
+    margin-left: 30px;
+  }
+  #titulo, #form-busca {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  #table-super-herois tbody tr td {
+    border: 0px;
+  }
+
+  #paginacao .link-previous:before {
+    margin-right: 40px;
+  }
+
+  #paginacao .link-next:before {
+    margin-left: 40px;
+  }
+}
+
