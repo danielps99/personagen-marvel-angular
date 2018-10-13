@@ -1,3 +1,4 @@
+import { PersonagemService } from './../shared/service/personagem.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PersonagemListComponent implements OnInit {
+  personagens: any[];
 
-  constructor() { }
+  constructor(private personagemService: PersonagemService) { }
 
   ngOnInit() {
+    this.personagemService.getAll().subscribe(das => this.personagens = das);
+    // this.personagens = this.superHeroiService.getAll();
   }
 
 }
