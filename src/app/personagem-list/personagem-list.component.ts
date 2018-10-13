@@ -1,5 +1,7 @@
-import { PersonagemService } from './../shared/service/personagem.service';
 import { Component, OnInit } from '@angular/core';
+
+import { PersonagemService } from './../shared/service/personagem.service';
+import { Personagem } from './../shared/response-entity/personagem';
 
 @Component({
   selector: 'app-personagem-list',
@@ -7,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PersonagemListComponent implements OnInit {
-  personagens: any[];
+  personagens: Personagem[];
 
   constructor(private personagemService: PersonagemService) { }
 
   ngOnInit() {
-    this.personagemService.getAll().subscribe(das => this.personagens = das);
+    this.personagemService.getAll().subscribe(das => this.personagens = das.data.results);
     // this.personagens = this.superHeroiService.getAll();
   }
 
