@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  API_URL: 'http://gateway.marvel.com/v1/public/characters',
+  API_URL: 'http://gateway.marvel.com/v1/public/',
   /*
     API_KEYMD5 É O RESULTADO md5() da concatenacao de um inteiro + private key + public key
     ex: md5(1SuaPrivateKeySuaPublicKey)
