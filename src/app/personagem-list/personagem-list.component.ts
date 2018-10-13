@@ -10,12 +10,14 @@ import { Personagem } from './../shared/response-entity/personagem';
 })
 export class PersonagemListComponent implements OnInit {
   personagens: Personagem[];
+  qtdRegistros: number;
 
   constructor(private personagemService: PersonagemService) { }
 
   ngOnInit() {
-    this.personagemService.getAll().subscribe(das => this.personagens = das.data.results);
-    // this.personagens = this.superHeroiService.getAll();
+    this.personagemService.buscarTodos().subscribe(res => {
+      this.personagens = res.data.results;
+      this.qtdRegistros = res.data.total;
+    });
   }
-
 }

@@ -1,8 +1,61 @@
 <p>
   personagem-list works!
 </p>
-<ul>
+{{qtdRegistros}}
+<!-- <ul>
   <li *ngFor="let item of personagens">
+    <img width=60px src="{{item.thumbnail.path}}.{{item.thumbnail.extension}}" />
     {{item.name}}
   </li>
-</ul>
+</ul> -->
+
+<div id="pagina">
+    <header>
+        <h1><span id="busca-marvel">BUSCA MARVEL</span><span id="teste-front-end">TESTE FRONT-END</span> <span id="candidato" class="hide-on-mobile">DANIEL PEREIRA DOS SANTOS</span></h1>
+        <div id="underline-busca"></div>
+    </header>
+    <section>
+      <form id="form-busca">
+        <label for="nome-personagem">Nome do Personagem</label><br />
+        <input type="text" name="nome-personagem"/>
+      </form>
+      <table id="table-super-herois">
+        <thead>
+          <tr >
+            <th>Personagem</th>
+            <th class="hide-on-mobile">Séries</th>
+            <th class="hide-on-mobile">Eventos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let personagem of personagens">
+            <td>
+                <img width=60px src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
+                {{personagem.name}}
+            </td>
+            <td class="hide-on-mobile">
+              <ul>
+                <li *ngFor="let serie of personagem.series.items" >{{serie.name}}</li>
+              </ul>
+            </td>
+            <td class="hide-on-mobile">
+                <ul>
+                    <li *ngFor="let event of personagem.events.items" >{{event.name}}</li>
+                  </ul>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+      <nav>
+        <ul id="paginacao">
+          <li class="link-previous"></li>
+          <li class="link-page">1</li>
+          <li class="link-page">2</li>
+          <li class="link-page">3</li>
+          <li class="link-next"></li>
+        </ul>
+      </nav>
+
+    </section>
+  </div>
