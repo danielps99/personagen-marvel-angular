@@ -36,18 +36,6 @@
 
         </tbody>
       </table>
-      <nav>
-          <p>
-              registros: {{qtdRegistros}}
-            </p>
-        <ul id="paginacao">
-          <li class="link-previous"></li>
-          <li class="link-page">1</li>
-          <li class="link-page">2</li>
-          <li class="link-page">3</li>
-          <li class="link-next"></li>
-        </ul>
-      </nav>
-
+      <app-paginador qtdPorPagina="10" (navegar)="navegarPagina($event)"  ></app-paginador>
     </section>
   </div>

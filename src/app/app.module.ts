@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { PersonagemListComponent } from './personagem-list/personagem-list.component';
 import { PersonagemDetailComponent } from './personagem-detail/personagem-detail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PaginadorComponent } from './shared/componente/paginador/paginador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonagemListComponent,
-    PersonagemDetailComponent
+    PersonagemDetailComponent,
+    PaginadorComponent
   ],
   imports: [
     BrowserModule,

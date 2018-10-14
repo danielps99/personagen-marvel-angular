@@ -19,7 +19,8 @@ export class PersonagemListComponent implements OnInit {
     this.personagemService.buscarTodos().subscribe(res => {
       this.personagens = res.data.results;
       this.qtdRegistros = res.data.total;
-    });
+      console.log(res);
+        });
   }
 
   retornarNoMaximoTresSeries(series: ItemSerie[]) {
@@ -28,6 +29,11 @@ export class PersonagemListComponent implements OnInit {
 
   retornarNoMaximoTresEvents(events: ItemEvent[]) {
     return events.slice(0, 3);
+  }
+
+  navegarPagina($event) {
+    console.log('Navegar para pagina ' + $event);
+
   }
 
   getPersonagenMock () {

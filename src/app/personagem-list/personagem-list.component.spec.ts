@@ -1,3 +1,4 @@
+import { PaginadorComponent } from './../shared/componente/paginador/paginador.component';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
@@ -10,7 +11,10 @@ describe('PersonagemListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ HttpClientTestingModule, ],
-      declarations: [ PersonagemListComponent ]
+      declarations: [
+        PersonagemListComponent,
+        PaginadorComponent
+      ]
     })
     .compileComponents();
   }));
