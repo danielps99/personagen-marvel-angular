@@ -12,6 +12,7 @@ import { PaginadorComponent } from '../shared/componente/paginador/paginador.com
 export class PersonagemListComponent implements OnInit {
   personagens: Personagem[];
   totalRegistros: number;
+  qtdRegistroPorPagina = 3;
   busca: '';
 
   constructor(private personagemService: PersonagemService) { }
@@ -48,10 +49,15 @@ export class PersonagemListComponent implements OnInit {
   }
 
   buscarRegistros(busca: string, pagina: number) {
-    this.personagemService.buscarPersonagensFiltrando(busca, 3, pagina).subscribe(res => {
+    this.atribuirQtdRegistroPorPagina();
+    this.personagemService.buscarPersonagensFiltrando(busca, this.qtdRegistroPorPagina, pagina).subscribe(res => {
       this.personagens = res.data.results;
       this.totalRegistros = res.data.total;
     });
+  }
+
+  atribuirQtdRegistroPorPagina() {
+    this.qtdRegistroPorPagina = document.body.clientWidth > 360 ? 3 : 4;
   }
 
   getPersonagenMock () {
