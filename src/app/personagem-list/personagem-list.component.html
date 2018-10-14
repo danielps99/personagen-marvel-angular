@@ -36,6 +36,7 @@
 
         </tbody>
       </table>
-      <app-paginador qtdPorPagina="10" (navegar)="navegarPagina($event)"  ></app-paginador>
+      {{totalRegistros}}
+      <app-paginador [total]="totalRegistros" [limit]="3" (navegar)="navegarPagina($event)"  ></app-paginador>
     </section>
   </div>

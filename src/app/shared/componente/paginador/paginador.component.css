@@ -4,7 +4,8 @@
   padding-left: 0px;
   text-align: center;
 }
-#paginador li{
+
+#paginador a{
   text-decoration: none;
   display: inline-block;
   vertical-align: middle;
@@ -37,6 +38,18 @@
   border-left: 12px solid var(--corMedia);
 }
 
+#paginador .link-previus-opaco:before {
+  border-right-color: var(--corMediaOpac);
+}
+
+#paginador .link-next-opaco:before {
+  border-left-color: var(--corMediaOpac);
+}
+
+#paginador .pagina-atual{
+  background-color: var(--corMedia);
+  color: var(--corClara);
+}
 
 @media (max-width: 360px) {
   #paginador .link-previous:before {

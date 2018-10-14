@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { PersonagemService } from './../shared/service/personagem.service';
-import { Personagem, Series, ItemSerie, ItemEvent } from './../shared/response-entity/personagem';
+import { Personagem, ItemSerie, ItemEvent } from './../shared/response-entity/personagem';
+
 
 @Component({
   selector: 'app-personagem-list',
@@ -10,15 +11,16 @@ import { Personagem, Series, ItemSerie, ItemEvent } from './../shared/response-e
 })
 export class PersonagemListComponent implements OnInit {
   personagens: Personagem[];
-  qtdRegistros: number;
+  totalRegistros: number;
 
   constructor(private personagemService: PersonagemService) { }
 
   ngOnInit() {
+    this.totalRegistros = 1;
     // this.personagens = this.getPersonagenMock();
     this.personagemService.buscarTodos().subscribe(res => {
       this.personagens = res.data.results;
-      this.qtdRegistros = res.data.total;
+      this.totalRegistros = res.data.total;
       console.log(res);
         });
   }
@@ -33,10 +35,11 @@ export class PersonagemListComponent implements OnInit {
 
   navegarPagina($event) {
     console.log('Navegar para pagina ' + $event);
-
   }
 
   getPersonagenMock () {
+    this.totalRegistros = 1;
+
     return [
       {
         id: 1010354,
