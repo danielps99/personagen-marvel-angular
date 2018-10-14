@@ -8,11 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PaginadorComponent implements OnInit {
 
   @Input() limit: number; // QUANTIDA LIMITE POR PAGINA
-  @Input() offset: number; // PAGINA ATUAL QUE COMECA DO ZERO MAS MOSTRA 1 PARA USUARIO
   @Input() total: number; // TOTAL DE REGISTROS PARA PAGINAR
   @Output('navegar') navegar = new EventEmitter();
 
-  // qtdPaginasMostrar: number;
   paginasNumeradas: Array<number>;
   paginaAnterior: number;
   paginaAtual: number;
@@ -21,50 +19,54 @@ export class PaginadorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.paginaAtual = 1;
-    this.gerarLinks();
+    setTimeout(
+      () => {
+        this.paginaAtual = 1;
+        this.gerarLinks();
+      }, 2000
+    );
   }
 
   paginar(pagina: number, $event: any) {
-		$event.preventDefault();
+    $event.preventDefault();
     this.navegar.emit(pagina);
     this.paginaAtual = pagina;
-		this.gerarLinks();
+    this.gerarLinks();
   }
 
   gerarLinks() {
-    this.paginaAnterior = this.paginaAtual === 1 ? 1 : this.paginaAtual -1;
-    let qtdPaginasMostrar = this.getQuantidadePaginasMostradas();
+    this.paginaAnterior = this.paginaAtual === 1 ? 1 : this.paginaAtual - 1;
+    const qtdPaginasMostrar = this.buscarQuantidadePaginasMostradas();
     this.paginasNumeradas = [];
-    let inicio = this.buscarInicioPaginador(qtdPaginasMostrar);
-    let fim = this.buscarFimPaginador(inicio, qtdPaginasMostrar);
+    const inicio = this.buscarInicioPaginador(qtdPaginasMostrar);
+    const fim = this.buscarFimPaginador(inicio, qtdPaginasMostrar);
     for (let i = inicio; i <= fim; i++) {
       this.paginasNumeradas.push(i);
     }
     this.paginaProxima = this.paginaAtual >= fim ? this.paginaAtual : this.paginaAtual + 1;
   }
 
-  buscarInicioPaginador(qtdPaginas){
-    let inicio = this.paginaAtual - Math.floor(qtdPaginas/2);
-    if(inicio <= 1){
+  buscarInicioPaginador(qtdPaginas) {
+    const inicio = this.paginaAtual - Math.floor(qtdPaginas / 2);
+    if (inicio <= 1) {
       return 1;
     }
-    let qtdTotalPaginas = Math.ceil(this.total / this.limit);
-    if(inicio + qtdPaginas > qtdTotalPaginas ){
+    const qtdTotalPaginas = Math.ceil(this.total / this.limit);
+    if (inicio + qtdPaginas > qtdTotalPaginas ) {
       return qtdTotalPaginas - qtdPaginas + 1;
     }
     return inicio;
   }
 
-  buscarFimPaginador(inicio, qtdPaginasMostrar){
-    let fim = Math.ceil(this.total / this.limit);
-    if(fim >= qtdPaginasMostrar){
-      return inicio + qtdPaginasMostrar -1;
+  buscarFimPaginador(inicio, qtdPaginasMostrar) {
+    const fim = Math.ceil(this.total / this.limit);
+    if (fim >= qtdPaginasMostrar) {
+      return inicio + qtdPaginasMostrar - 1;
     }
     return fim;
   }
 
-  getQuantidadePaginasMostradas(){
+  buscarQuantidadePaginasMostradas() {
     return document.body.clientWidth > 360 ? 5 : 3;
   }
 }
