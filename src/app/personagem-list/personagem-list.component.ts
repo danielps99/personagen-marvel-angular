@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PersonagemService } from './../shared/service/personagem.service';
 import { Personagem, ItemSerie, ItemEvent } from './../shared/response-entity/personagem';
-
+import { PaginadorComponent } from '../shared/componente/paginador/paginador.component';
 
 @Component({
   selector: 'app-personagem-list',
@@ -12,17 +12,14 @@ import { Personagem, ItemSerie, ItemEvent } from './../shared/response-entity/pe
 export class PersonagemListComponent implements OnInit {
   personagens: Personagem[];
   totalRegistros: number;
+  busca: '';
 
   constructor(private personagemService: PersonagemService) { }
 
   ngOnInit() {
     this.totalRegistros = 1;
     // this.personagens = this.getPersonagenMock();
-    this.personagemService.buscarTodos().subscribe(res => {
-      this.personagens = res.data.results;
-      this.totalRegistros = res.data.total;
-      console.log(res);
-        });
+    this.buscarRegistros('', 1);
   }
 
   retornarNoMaximoTresSeries(series: ItemSerie[]) {
@@ -33,8 +30,28 @@ export class PersonagemListComponent implements OnInit {
     return events.slice(0, 3);
   }
 
+  filtrarEntradaUsuarioBusca($event) {
+    const buscaDigitada = this.busca = $event.target.value;
+    const delay = (time) => (result) => new Promise(resolve => setTimeout(() => resolve(result), time));
+    Promise.resolve(buscaDigitada)
+      .then(delay(800))
+        .then( result => {
+            if ( buscaDigitada !== '' && buscaDigitada === this.busca ) {
+              this.buscarRegistros(this.busca, 1);
+            }
+          }
+      );
+   }
+
   navegarPagina($event) {
-    console.log('Navegar para pagina ' + $event);
+    this.buscarRegistros(this.busca, $event);
+  }
+
+  buscarRegistros(busca: string, pagina: number) {
+    this.personagemService.buscarPersonagensFiltrando(busca, 3, pagina).subscribe(res => {
+      this.personagens = res.data.results;
+      this.totalRegistros = res.data.total;
+    });
   }
 
   getPersonagenMock () {

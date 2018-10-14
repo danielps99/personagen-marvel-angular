@@ -4,9 +4,9 @@
         <div id="underline-busca"></div>
     </header>
     <section>
-      <form id="form-busca">
+      <form id="form-busca" onsubmit="return false">
         <label for="nome-personagem">Nome do Personagem</label><br />
-        <input type="text" name="nome-personagem"/>
+        <input (input)="filtrarEntradaUsuarioBusca($event)" type="text" name="nome-personagem"/>
       </form>
       <table id="table-super-herois">
         <thead>
@@ -36,7 +36,6 @@
 
         </tbody>
       </table>
-      {{totalRegistros}}
-      <app-paginador [total]="totalRegistros" [limit]="3" (navegar)="navegarPagina($event)"  ></app-paginador>
+      <app-paginador [total]="totalRegistros" [limit]="3" (navegar)="navegarPagina($event)" ></app-paginador>
     </section>
   </div>

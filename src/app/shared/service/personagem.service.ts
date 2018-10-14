@@ -10,7 +10,10 @@ export class PersonagemService {
 
   constructor(private http: HttpClient) { }
 
-  buscarTodos() {
-    return this.http.get<ResponseBody>(`${environment.API_URL}characters?${environment.API_KEYMD5}`);
+  buscarPersonagensFiltrando(busca, limit, pagina: number) {
+    const offset = limit * (pagina - 1);
+    const parametroBusca = busca !== '' ? `nameStartsWith=${busca}&` : '';
+    return this.http.get<ResponseBody>(
+      `${environment.API_URL}characters?${parametroBusca}limit=${limit}&offset=${offset}&${environment.API_KEYMD5}`);
   }
 }
