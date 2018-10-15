@@ -8,9 +8,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class PaginadorComponent implements OnInit {
 
   @Input() limit: number; // QUANTIDA LIMITE POR PAGINA
-  @Input() total: number; // TOTAL DE REGISTROS PARA PAGINAR
+  @Input('total') set value(inputValue: number) { // TOTAL DE REGISTROS PARA PAGINAR
+    this.total = inputValue;
+    this.gerarLinks();
+  }
   @Output('navegar') navegar = new EventEmitter();
 
+  total: number;
   paginasNumeradas: Array<number>;
   paginaAnterior: number;
   paginaAtual: number;

@@ -41,7 +41,7 @@ export class PersonagemListComponent implements OnInit, OnDestroy {
     Promise.resolve(buscaDigitada)
       .then(delay(800))
         .then( result => {
-            if ( buscaDigitada !== '' && buscaDigitada === this.busca ) {
+            if ( buscaDigitada === this.busca ) {
               this.buscarRegistros(this.busca, 1);
             }
           }
