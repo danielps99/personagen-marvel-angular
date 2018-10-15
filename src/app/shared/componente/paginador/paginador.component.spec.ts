@@ -20,6 +20,7 @@ describe('PaginadorComponent', () => {
   });
 
   it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });
 
