@@ -37,10 +37,12 @@
 
 #paginador .link-previus-opaco:before {
   border-right-color: var(--corMediaOpac);
+  cursor: default;
 }
 
 #paginador .link-next-opaco:before {
   border-left-color: var(--corMediaOpac);
+  cursor: default;
 }
 
 #paginador .pagina-atual{

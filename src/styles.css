@@ -45,6 +45,24 @@ body, h1 {
   border-bottom-right-radius: 6px;
 }
 
+#busca-marvel{
+  font-family: 'Roboto-Black';
+  font-size: 27px;
+  color: var(--corMedia);
+  display: inline-block;
+}
+
+#teste-front-end, #candidato{
+  font-family: 'Roboto-Light';
+  font-size: 27px;
+  color: var(--corMedia);
+  display: inline-block;
+}
+
+#candidato{
+  float: right;
+}
+
 #underline-busca{
   height: 4px;
   width: 54px;
@@ -93,6 +111,10 @@ section{
   border-left: 10px solid var(--corClara);
 }
 
+#table-super-herois tbody tr{
+  cursor: pointer;
+}
+
 #table-super-herois tbody tr td{
   height: 112px;
   vertical-align: middle;
@@ -112,24 +134,6 @@ section{
 #table-super-herois tbody tr td li{
   text-decoration: none;
    display: block;
-}
-
-#busca-marvel{
-  font-family: 'Roboto-Black';
-  font-size: 27px;
-  color: var(--corMedia);
-  display: inline-block;
-}
-
-#teste-front-end, #candidato{
-  font-family: 'Roboto-Light';
-  font-size: 27px;
-  color: var(--corMedia);
-  display: inline-block;
-}
-
-#candidato{
-  float: right;
 }
 
 @media (min-width: 1280px) {

@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let personagem of personagens">
+          <tr *ngFor="let personagem of personagens" routerLink="/personagem"  [queryParams]="{id: personagem.id}" >
             <td>
               <img class="thumbnail" src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
               <span class="nome-personagem"> {{personagem.name}}</span>
