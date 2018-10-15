@@ -30,6 +30,9 @@ export class PersonagemListComponent implements OnInit, OnDestroy {
     return events.slice(0, 3);
   }
 
+  /*
+    Função faz um delay antes da requisiçao API. Requisita depois que usuario parar de digitar por 800 milisegundos
+  */
   filtrarEntradaUsuarioBusca($event) {
     const buscaDigitada = this.busca = $event.target.value;
     const delay = (time) => (result) => new Promise(resolve => setTimeout(() => resolve(result), time));

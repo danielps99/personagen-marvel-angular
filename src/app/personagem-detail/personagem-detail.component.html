@@ -1,3 +1,61 @@
-<p>
-  personagem-detail works!
-</p>
+<div id="pagina">
+  <header>
+    <div class="float-left">
+      <img (click)="ampliarOuMinimizarFoto()" [ngClass]="( fotoGrande ) ? 'foto-grande' : 'foto'" title="Clique para ampliar."
+        src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
+    </div>
+    <div>
+      <h1 id="nome-personagem">{{personagem.name}}</h1>
+    </div>
+    <p class="text-center">Modificado: {{ personagem.modified | date: 'dd/MM/yyyy'}}</p>
+  </header>
+  <section>
+    <p>{{personagem.description}}</p>
+    <section>
+      <h2 class="titulo-sessoes">Séries</h2>
+      <ul>
+          <li *ngFor="let serie of personagem.series.items">{{serie.name}}</li>
+        </ul>
+    </section>
+    <section>
+    <h2 class="titulo-sessoes">Eventos</h2>
+      <ul>
+        <li *ngFor="let event of personagem.events.items">{{event.name}}</li>
+      </ul>
+    </section>
+    <section>
+        <h2 class="titulo-sessoes">Eventos</h2>
+          <ul>
+            <li *ngFor="let comic of personagem.comics.items">{{comic.name}}</li>
+          </ul>
+    </section>
+    <section>
+        <h2 class="titulo-sessoes">Eventos</h2>
+          <ul>
+            <li *ngFor="let storie of personagem.stories.items">{{storie.type}} - {{storie.name}}</li>
+          </ul>
+    </section>
+
+
+    <!-- <table id="table-super-herois">
+      <tbody>
+        <tr routerLink="/personagem/{{personagem.id}}">
+
+          <td class="hide-tela-peq">
+            <ul>
+              <li *ngFor="let serie of personagem.series.items">{{serie.name}}</li>
+            </ul>
+          </td>
+          <td class="hide-tela-peq hide-tela-med">
+            <ul>
+              <li *ngFor="let event of personagem.events.items">{{event.name}}</li>
+            </ul>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>-->
+  </section>
+
+  {{personagem | json}}
+</div>

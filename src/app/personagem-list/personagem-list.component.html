@@ -3,7 +3,7 @@
         <h1 id="titulo"><span id="busca-marvel">BUSCA MARVEL</span><span id="teste-front-end">TESTE FRONT-END</span> <span id="candidato" class="hide-tela-peq">DANIEL PEREIRA DOS SANTOS</span></h1>
         <div id="underline-busca"></div>
     </header>
-    <section>
+    <section id="sessao-listagem">
       <form id="form-busca" onsubmit="return false">
         <label for="nome-personagem">Nome do Personagem</label><br />
         <input (input)="filtrarEntradaUsuarioBusca($event)" type="text" name="nome-personagem"/>
@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let personagem of personagens" routerLink="/personagem"  [queryParams]="{id: personagem.id}" >
+          <tr *ngFor="let personagem of personagens" routerLink="/personagem/{{personagem.id}}" >
             <td>
               <img class="thumbnail" src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
               <span class="nome-personagem"> {{personagem.name}}</span>

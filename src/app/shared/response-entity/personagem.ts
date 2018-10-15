@@ -1,63 +1,70 @@
 export class Thumbnail {
   public path: string;
   public extension: string;
-  }
+}
 
-  export class ItemComic {
+export class ItemComic {
   public resourceURI: string;
   public name: string;
-  }
+}
 
-  export class Comics {
+export class Comics {
   public available: number;
   public collectionURI: string;
   public items: ItemComic[];
   public returned: number;
-  }
+}
 
-  export class ItemSerie {
+export class ItemSerie {
   public resourceURI: string;
   public name: string;
-  }
+}
 
-  export class Series {
+export class Series {
   public available: number;
   public collectionURI: string;
   public items: ItemSerie[];
   public returned: number;
-  }
+}
 
-  export class ItemStories {
+export class ItemStories {
   public resourceURI: string;
   public name: string;
   public type: string;
-  }
+}
 
-  export class Stories {
+export class Stories {
   public available: number;
   public collectionURI: string;
   public items: ItemStories[];
   public returned: number;
-  }
+}
 
-  export class ItemEvent {
+export class ItemEvent {
   public resourceURI: string;
   public name: string;
-  }
+}
 
-  export class Events {
+export class Events {
   public available: number;
   public collectionURI: string;
   public items: ItemEvent[];
   public returned: number;
-  }
+}
 
-  export class Url {
+export class Url {
   public type: string;
   public url: string;
-  }
+}
 
-  export class Personagem {
+export class Personagem {
+  constructor() {
+    this.thumbnail = new Thumbnail();
+    this.series = new Series();
+    this.events = new Events();
+    this.comics = new Comics();
+    this.stories = new Stories();
+  }
   public id: number;
   public name: string;
   public description: string;
@@ -69,17 +76,17 @@ export class Thumbnail {
   public stories: Stories;
   public events: Events;
   public urls: Url[];
-  }
+}
 
-  export class Data {
+export class Data {
   public offset: number;
   public limit: number;
   public total: number;
   public count: number;
   public results: Personagem[];
-  }
+}
 
-  export class ResponseBody {
+export class ResponseBodyPersonagem {
   public code: number;
   public status: string;
   public copyright: string;
@@ -87,4 +94,4 @@ export class Thumbnail {
   public attributionHTML: string;
   public etag: string;
   public data: Data;
-  }
+}

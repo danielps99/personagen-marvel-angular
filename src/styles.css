@@ -32,6 +32,9 @@ html {
 body, h1 {
   margin: 0;
 }
+h1, h2, .text-center{
+  text-align: center;
+}
 
 #pagina{
   margin-right: auto;
@@ -69,7 +72,7 @@ body, h1 {
   background-color: var(--corMedia);
 }
 
-section{
+#sessao-listagem{
   padding-top: 34px;
 }
 
@@ -136,6 +139,39 @@ section{
    display: block;
 }
 
+.foto{
+  width: 150px;
+  cursor: pointer;
+}
+
+.foto-grande{
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  position: absolute;
+  top:0px;
+  left:0px;
+}
+#nome-personagem{
+    font-family: 'Roboto-Black';
+    font-size: 36px;
+    color: var(--corMedia);
+    padding-top: 28px;
+}
+.float-left{
+  float: left;
+}
+.float-right{
+  float: right;
+}
+
+.titulo-sessoes{
+  font-family: 'Roboto-Regular';
+  font-size: 18px;
+  background-color: var(--corMedia);
+  color: var(--corClara);
+}
+
 @media (min-width: 1280px) {
   #pagina{
     max-width: 1196px;
@@ -166,9 +202,11 @@ section{
     font-size: 16px;
     line-height: 19px;
   }
-  section{
+
+  #sessao-listagem{
     padding-top: 12px;
   }
+
   #form-busca{
     margin-bottom: 12px;
   }
