@@ -1,3 +1,4 @@
+import { ResponseBodySerie } from './../response-entity/serie';
 import { environment } from './../../../environments/environment';
 import { ResponseBodyPersonagem } from './../response-entity/personagem';
 import { Injectable } from '@angular/core';
@@ -20,5 +21,10 @@ export class PersonagemService {
     const parametroBusca = (busca === undefined || busca === '') ? '' : `nameStartsWith=${busca}&`;
     return this.http.get<ResponseBodyPersonagem>(
       `${environment.API_URL}characters?${parametroBusca}limit=${limit}&offset=${offset}&${environment.API_KEYMD5}`);
+  }
+
+  buscarSeriesByPersonagemId(id: number) {
+    return this.http.get<ResponseBodySerie>(
+      `${environment.API_URL}characters/${id}/series?${environment.API_KEYMD5}`);
   }
 }

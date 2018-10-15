@@ -1,8 +1,10 @@
+import { ItemEvent } from './../shared/response-entity/event';
+import { ItemSerie } from './../shared/response-entity/serie';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { PersonagemService } from './../shared/service/personagem.service';
-import { Personagem, ItemSerie, ItemEvent } from './../shared/response-entity/personagem';
+import { Personagem} from './../shared/response-entity/personagem';
 
 @Component({
   selector: 'app-personagem-list',

@@ -1,3 +1,4 @@
+import { Series } from './../shared/response-entity/serie';
 import { Personagem } from './../shared/response-entity/personagem';
 import { PersonagemService } from './../shared/service/personagem.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +14,12 @@ import { Subscription } from 'rxjs';
 export class PersonagemDetailComponent implements OnInit, OnDestroy {
   subscriptions: Subscription[] = [];
   personagem: Personagem = new Personagem();
+  series: Series[] = [];
   fotoGrande = false;
+  hideSeries = true;
+  hideHistorias = true;
+  hidehistoriaQuad = true;
+  hideEventos = true;
 
   constructor(private activatedRoute: ActivatedRoute, private personagemService: PersonagemService) { }
 
@@ -28,6 +34,16 @@ export class PersonagemDetailComponent implements OnInit, OnDestroy {
         }
       )
     );
+  }
+
+  buscarSeries(ocultar: boolean, personagemId: number) {
+    if (!ocultar) {
+      this.subscriptions.push (
+        this.personagemService.buscarSeriesByPersonagemId(personagemId).subscribe(r => {
+          this.series = r.data.results;
+        })
+      );
+    }
   }
 
   obterLarguraTela() {

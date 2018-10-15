@@ -36,16 +36,19 @@ h1, h2, .text-center{
   text-align: center;
 }
 
-#pagina{
+#pagina-list, #pagina-detail, #pagina-detail {
   margin-right: auto;
   margin-left: auto;
-  height: 688px;
   padding-top: 20px;
   padding-right: 42px;
   padding-left: 42px;
   border-bottom: 12px solid var(--corMedia);
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+}
+
+#pagina-list {
+  height: 688px;
 }
 
 #busca-marvel{
@@ -165,6 +168,10 @@ h1, h2, .text-center{
   float: right;
 }
 
+.clear-both{
+  clear: both;
+}
+
 .titulo-sessoes{
   font-family: 'Roboto-Regular';
   font-size: 18px;
@@ -172,8 +179,27 @@ h1, h2, .text-center{
   color: var(--corClara);
 }
 
+#pagina-detail section ul li{
+  display: block;
+  padding: 15px 5px 0px 5px;
+}
+#pagina-detail section ul li img {
+  height: 100px;
+    float: left;
+  margin: 0px 12px 0px 12px;
+}
+
+.btn-mostrar-ocultar{
+  float: right;
+  background-color: var(--corClara);
+  border: 2px solid var(--corMedia);
+  padding: 1px 6px 1px 6px;
+  cursor: pointer;
+  color: var(--corEscura);
+}
+
 @media (min-width: 1280px) {
-  #pagina{
+  #pagina-list, #pagina-detail{
     max-width: 1196px;
   }
 }
@@ -193,8 +219,11 @@ h1, h2, .text-center{
   .hide-tela-peq{
     display: none !important;
   }
-  #pagina{
+  #pagina-list, #pagina-detail{
     padding: 0px 0px 0px 0px;
+  }
+
+  #pagina-list{
     height: 616px;
   }
 
