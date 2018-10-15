@@ -5,7 +5,7 @@
         src="{{personagem.thumbnail.path}}.{{personagem.thumbnail.extension}}" />
     </div>
     <div>
-      <h1 id="nome-personagem">{{personagem.name}}</h1>
+      <h1 id="nome-personagem" class="text-center">{{personagem.name}}</h1>
     </div>
     <p class="text-center">Modificado: {{ personagem.modified | date: 'dd/MM/yyyy'}}</p>
     <div class="clear-both">
@@ -13,7 +13,7 @@
     </div>
   </header>
     <section [hidden]="!(personagem.series.available > 0)">
-      <h2 class="titulo-sessoes">Séries
+      <h2 class="titulo-sessoes text-center">Séries
         <span (click)="hideSeries = !hideSeries; buscarSeries(hideSeries, personagem.id)" class="btn-mostrar-ocultar">{{hideSeries ? '(+) mostrar': '(-)ocultar)'}}</span>
       </h2>
       <ul [hidden]="hideSeries">
@@ -27,7 +27,7 @@
     </section>
 
     <section [hidden]="!(personagem.stories.available > 0)">
-        <h2 class="titulo-sessoes">Histórias
+        <h2 class="titulo-sessoes text-center">Histórias
             <span (click)="hideHistorias = !hideHistorias" class="btn-mostrar-ocultar">{{hideHistorias ? '(+) mostrar': '(-)ocultar)'}}</span>
         </h2>
           <ul [hidden]="hideHistorias">
@@ -35,14 +35,14 @@
           </ul>
     </section>
     <section [hidden]="!(personagem.comics.available > 0)">
-        <h2 class="titulo-sessoes">Histórias em quadrinhos
+        <h2 class="titulo-sessoes text-center">Histórias em quadrinhos
             <span (click)="hidehistoriaQuad = !hidehistoriaQuad" class="btn-mostrar-ocultar">{{hidehistoriaQuad ? '(+) mostrar': '(-)ocultar)'}}</span>
         </h2>
           <ul [hidden]="hidehistoriaQuad">
             <li *ngFor="let comic of personagem.comics.items">{{comic.name}}</li>
           </ul>
     <section [hidden]="!(personagem.events.available > 0)">
-    <h2 class="titulo-sessoes">Eventos
+    <h2 class="titulo-sessoes text-center">Eventos
         <span (click)="hideEventos = !hideEventos" class="btn-mostrar-ocultar">{{hideEventos ? '(+) mostrar': '(-)ocultar)'}}</span>
     </h2>
       <ul [hidden]="hideEventos">
