@@ -1,4 +1,4 @@
-<nav id="paginador" [hidden]="paginasNumeradas.length === 0">
+<nav id="paginador">
   <a href='' [ngClass]="( paginaAtual === paginaAnterior ) ? 'link-previus-opaco' : ''" (click)="paginar(paginaAnterior, $event)" class="link-previous"></a>
   <a href='' [ngClass]="( link == paginaAtual ) ? 'pagina-atual' : ''" *ngFor="let link of paginasNumeradas" (click)="paginar(link, $event)" class="link-page" ng >{{link}}</a>
   <a href='' [ngClass]="( paginaAtual === paginaProxima ) ? 'link-next-opaco' : ''" (click)="paginar(paginaProxima, $event)" class="link-next"></a>
