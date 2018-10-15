@@ -12,13 +12,13 @@
       <p>{{personagem.description}}</p>
     </div>
   </header>
-    <section>
-      <h2 class="titulo-sessoes" [hidden]="!(personagem.series.available > 0)">Séries
+    <section [hidden]="!(personagem.series.available > 0)">
+      <h2 class="titulo-sessoes">Séries
         <span (click)="hideSeries = !hideSeries; buscarSeries(hideSeries, personagem.id)" class="btn-mostrar-ocultar">{{hideSeries ? '(+) mostrar': '(-)ocultar)'}}</span>
       </h2>
       <ul [hidden]="hideSeries">
           <li *ngFor="let serie of series" class="clear-both">
-            <img (click)="ampliarOuMinimizarFoto()" src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" />
+            <img [ngClass]="( fotoGrande ) ? 'foto-grande' : 'foto'" src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" />
             <b>{{serie.title}}</b>
             <p>{{serie.description}}</p>
           </li>
@@ -27,23 +27,28 @@
     </section>
 
     <section [hidden]="!(personagem.stories.available > 0)">
-        <h2 class="titulo-sessoes">Histórias</h2>
-          <ul>
+        <h2 class="titulo-sessoes">Histórias
+            <span (click)="hideHistorias = !hideHistorias" class="btn-mostrar-ocultar">{{hideHistorias ? '(+) mostrar': '(-)ocultar)'}}</span>
+        </h2>
+          <ul [hidden]="hideHistorias">
             <li *ngFor="let storie of personagem.stories.items">{{storie.type}} - {{storie.name}}</li>
           </ul>
     </section>
     <section [hidden]="!(personagem.comics.available > 0)">
-        <h2 class="titulo-sessoes">Histórias em quadrinhos</h2>
-          <ul>
+        <h2 class="titulo-sessoes">Histórias em quadrinhos
+            <span (click)="hidehistoriaQuad = !hidehistoriaQuad" class="btn-mostrar-ocultar">{{hidehistoriaQuad ? '(+) mostrar': '(-)ocultar)'}}</span>
+        </h2>
+          <ul [hidden]="hidehistoriaQuad">
             <li *ngFor="let comic of personagem.comics.items">{{comic.name}}</li>
           </ul>
     <section [hidden]="!(personagem.events.available > 0)">
-    <h2 class="titulo-sessoes">Eventos</h2>
-      <ul>
+    <h2 class="titulo-sessoes">Eventos
+        <span (click)="hideEventos = !hideEventos" class="btn-mostrar-ocultar">{{hideEventos ? '(+) mostrar': '(-)ocultar)'}}</span>
+    </h2>
+      <ul [hidden]="hideEventos">
         <li *ngFor="let event of personagem.events.items">{{event.name}}</li>
       </ul>
     </section>
-
   </section>
-  {{personagem | json}}
+  <p class="text-center"><a [routerLink]="['/']">Ir para página de listagem</a></p>
 </div>

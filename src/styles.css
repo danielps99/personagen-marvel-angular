@@ -142,12 +142,12 @@ h1, h2, .text-center{
    display: block;
 }
 
-.foto{
+#pagina-detail .foto{
   width: 150px;
   cursor: pointer;
 }
 
-.foto-grande{
+#pagina-detail .foto-grande{
   width: 100%;
   margin-right: auto;
   margin-left: auto;
@@ -155,15 +155,18 @@ h1, h2, .text-center{
   top:0px;
   left:0px;
 }
+
 #nome-personagem{
     font-family: 'Roboto-Black';
     font-size: 36px;
     color: var(--corMedia);
     padding-top: 28px;
 }
+
 .float-left{
   float: left;
 }
+
 .float-right{
   float: right;
 }
@@ -225,6 +228,20 @@ h1, h2, .text-center{
 
   #pagina-list{
     height: 616px;
+  }
+
+  #pagina-detail .foto{
+    cursor: default;
+  }
+
+  #pagina-detail .foto-grande{
+    width: 100%;
+    position: relative;
+  }
+
+  #pagina-detail .foto{
+    cursor: default;
+    width: 100%;
   }
 
   #busca-marvel, #teste-front-end{
