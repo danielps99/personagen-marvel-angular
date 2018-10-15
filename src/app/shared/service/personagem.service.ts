@@ -12,7 +12,7 @@ export class PersonagemService {
 
   buscarPersonagensFiltrando(busca, limit, pagina: number) {
     const offset = limit * (pagina - 1);
-    const parametroBusca = busca !== '' ? `nameStartsWith=${busca}&` : '';
+    const parametroBusca = (busca === undefined || busca === '') ? '' : `nameStartsWith=${busca}&`;
     return this.http.get<ResponseBody>(
       `${environment.API_URL}characters?${parametroBusca}limit=${limit}&offset=${offset}&${environment.API_KEYMD5}`);
   }

@@ -1,15 +1,12 @@
 #paginador {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 0px;
   text-align: center;
+  margin-top: 48px;
 }
 
 #paginador a{
   text-decoration: none;
   display: inline-block;
-  vertical-align: middle;
-  text-align: center;
+  color: var(--corMedia);
 }
 
 #paginador .link-page{
@@ -52,6 +49,10 @@
 }
 
 @media (max-width: 360px) {
+  #paginador{
+    margin-top: 18px;
+  }
+
   #paginador .link-previous:before {
     margin-right: 40px;
   }
